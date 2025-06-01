@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(towr_pybullet)
 find_package(ifopt)
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-find_package(raisimOgre CONFIG REQUIRED)
+# find_package(raisimOgre CONFIG REQUIRED)
 find_package(Eigen3 REQUIRED HINTS ${Eigen3_HINT})
 
 include_directories (${EIGEN3_INCLUDE_DIRS})
@@ -20,7 +20,7 @@ function(create_sharedlib lib_name file_name)
   target_include_directories(${lib_name} PUBLIC ${Python3_INCLUDE_DIRS})
 
   target_link_libraries(${lib_name} PUBLIC Python3::Module) 
-  target_link_libraries(${lib_name} PUBLIC raisim::raisimOgre)
+  # target_link_libraries(${lib_name} PUBLIC raisim::raisimOgre)
   target_link_libraries(${lib_name} PUBLIC ifopt::ifopt_ipopt) 
   target_link_libraries(${lib_name} PUBLIC towr::towr) # adds include directories and libraries
 
